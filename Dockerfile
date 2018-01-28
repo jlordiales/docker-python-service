@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.1
+FROM alpine:3.7
 
 EXPOSE 5000
 CMD ["python", "app.py"]
@@ -6,7 +6,7 @@ CMD ["python", "app.py"]
 ADD . /code
 WORKDIR /code
 
-RUN apk-install python \
+RUN apk add --no-cache python \
     python-dev \
     py-pip &&\
     pip install -r requirements.txt
